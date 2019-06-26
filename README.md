@@ -25,6 +25,6 @@ This FTP Library makes easier to connect ftp, file upload, download, delete and 
     $ftp->rename("OldServerFileOrDirectoryName","NewServerFileOrDirectoryName"); Returns BOOLEAN
     
     // Get the realpath of your ftp server like /home/server5/ftp/
-    @param1 is the folder you connected like ftptest.mysite.com/ftptest/
-    @param2 if you use certificated web site you need to set https://
+    // @param1 is the folder you connected like ftptest.mysite.com/ftptest/
+    // @param2 if you use certificated web site you need to set https://
     $ftp->ftprealpath("ftptest","https://"); Returns STRING
