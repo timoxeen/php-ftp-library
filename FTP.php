@@ -56,7 +56,7 @@ class FTP
     public function upload($localfile, $remote_file, $mode = FTP_ASCII)
     {
         $this->mode = $mode == "ascii" ? FTP_ASCII : FTP_BINARY;
-        if (!ftp_put($this->ftpID, $remote_file, $localfile, (int)$this->mode)) {
+        if (!ftp_put($this->ftpID, $remote_file, $localfile, $this->mode)) {
             if ($this->debugging) {
                 if (!file_exists($localfile)) {
                     echo "No file with this name in your local. Please check the source path.";
@@ -150,7 +150,7 @@ class FTP
     {
         if (!ftp_rename($this->ftpID, $oldname, $newname)) {
             if ($this->debugging) {
-                if (!file_exists($oldname) && !is_dir($oldname)) {
+                if (!file_exists($oldname)) {
                     echo "There is no file or directory with this name.";
                 }
             }
@@ -183,7 +183,7 @@ class FTP
         curl_close($ch);
         if ($this->debugging) {
             if (!file_exists("path.php")) {
-                echo "File path.php doesn't created on your local server, so we can't get path.";
+                echo "File path.php doesn't created on your local server, so path couldn't taken.";
             }
             return false;
         }
