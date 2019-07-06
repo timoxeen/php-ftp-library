@@ -15,7 +15,9 @@ class FTP
      */
     public function __construct($debugging = false)
     {
-        ini_set('display_errors', 0);
+        if($debugging){
+            ini_set('display_errors', 0);
+        }
         $this->debugging = $debugging;
     }
     /**
